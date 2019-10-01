@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="javaweb14_csbs">
+        <wb-resource deploy-path="/" source-path="/WebRoot" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <property name="java-output-path" value="/javaweb14_csbs/WebRoot/WEB-INF/classes"/>
+        <property name="context-root" value="javaweb14_csbs"/>
+    </wb-module>
+</project-modules>

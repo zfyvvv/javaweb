@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <servlet>
+    <servlet-name>myservlet</servlet-name>
+    <servlet-class>myservlet.a.MyServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>ServletLife</servlet-name>
+    <servlet-class>myservlet.a.ServletLife</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>ServletMethod</servlet-name>
+    <servlet-class>myservlet.a.ServletMethod</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>ServletRequest</servlet-name>
+    <servlet-class>myservlet.a.ServletRequest</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>ServletResp</servlet-name>
+    <servlet-class>myservlet.a.ServletResp</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>myservlet</servlet-name>
+    <url-pattern>/my</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ServletLife</servlet-name>
+    <url-pattern>/life</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ServletMethod</servlet-name>
+    <url-pattern>/method</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ServletRequest</servlet-name>
+    <url-pattern>/req</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ServletResp</servlet-name>
+    <url-pattern>/resp</url-pattern>
+  </servlet-mapping>
+</web-app>

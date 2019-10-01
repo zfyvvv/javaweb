@@ -1,0 +1,46 @@
+C/S架构：
+	socket,servletsocket,awt/swing在一个客户端
+	建好socket连接后，通过IO流来交换数据，数据格式由开发者自己定义，name：ddd或uname：ddddd
+B/S架构：
+	浏览器也是一种客户端；
+	HTTP协议定义了浏览器和服务器通讯的基本规则之一；
+浏览器和服务器之间的交互：
+	交互模式是：请求--响应、
+	客户端先发出请求，服务器根据请求内容发送响应内容；
+客户端发出请求的格式应该是什么样子的？
+	服务器的地址，端口，资源地址，->请求行
+	请求头
+	请求实体
+	注：客户端向服务器传参，如果将参数放到请求行，即为get方式；如果把参数发到请求实体 中，则为post方式；
+服务器收到请求信息后返回响应内容：
+	响应内容怎么定义
+		状态行
+		响应头
+		响应实体
+客户端接受到响应内容后，该如何显示这些内容？
+	HTML
+	希望HTML元素可以动起来->javascript
+	更加精确的，更加漂亮的控制页面元素的显示，-->css
+服务器根据请求内容发送响应内容：
+	如何收到请求内容：
+		建立监听，ServerSocket-->s.accept();
+		启动一个线程（轻量级进程），为请求客户提供服务；
+		为封装客户端提供的请求信息，定义一个HttpServletRequest对象；
+		为了封装回送客户端的响应，定义了一个HttpServletResponse对象；
+	根据请求内容调用相关的程序（servlet）
+		通过web.xml中定义的url和servlet的关系，找到相应的servlet程序；
+		我们定义HttpServlet并增加service()；
+		将response对象中的信息，转译成基于http协议的响应内容，再将这些响应内容通过socket传送到客户端；
+		为了统一处理上述流程，我们编写了一个程序-->tomcat服务器，也叫web容器，servlet容器；
+		如何使我们的servlet程序更加规范，更加强大？
+			浏览器发送到服务器的内容，HttpServletRequest对象
+			服务器回送给浏览器的响应内容，HttpServletResponse对象
+			servlet类读取web.xml中自己配置的信息，ServletConfig
+			需要读取web.xml中的公共信息<context-param>, ServletContext;
+			将所有的servlet放入到一个同一的容器进行管理，ServletContext
+			保存以前操作的状态，客户端保存使用cookie，服务器端保存session
+		这时，servlet善于做业务逻辑处理，不善于做代码页面展示，进行改进，jsp出现了，jsp也是一个servlet，也是一个java类；
+		将jsp文件同一转译成java类代码，产生了jsp引擎（一般是服务器软件自带了这样的功能）
+		
+	ajax：异步模式，局部刷新技术；
+		通过XML.HttpRequest对象，使用XHR对象发送请求，获得数据后，也是首先传递给XHR对象，再通过javas代码操作dom模型，实现局部刷新技术；

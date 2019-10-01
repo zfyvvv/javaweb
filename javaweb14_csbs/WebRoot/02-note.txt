@@ -1,0 +1,173 @@
+HTML
+	非表单标签：
+		b粗体  u下划线  i斜体  del删除效果
+		a超链接  herf targer=blank;
+		img图片
+		frameset(frame)框架集
+		table表格 th，tr，td（table,data,cell） colspan rowspan
+		ul li or 列表标签
+		enbed 用来播放MP3，视频等等
+		div 虚拟矩形区域，span 行内元素（不会换行）
+	表单标签：
+	<form> 表单标签 action 提交表单的地址 method表单提交的方式（get、post） name（命名方式，regFrm）
+	表单域（表单域一定要有name属性，否则表单域的值不会被提交！）
+		文本域（text 单行文本域  password密码框  textarea 多行文本域）
+		radio 单选按钮（组，name属性一致即为一组，每一组只能提交一个值）
+		checkbox复选框（组，name属性一致即为一组，每一组可以提交多个值）
+		select，option下拉框（可以实现多选一，多选多）
+		file 文件域，用来实现文件的上传（method-post，enctype="multipart/form-data"）
+		hidden 隐藏域（不需要用户输入，但是服务器有需要的值）
+		reset 重置
+		submit 提交按钮
+		button 普通按钮（通常用来激活一个JS函数）
+CSS
+	如何引用css信息
+		通过html元素的style属性，class属性；通过style块；通过引用外部的css文件  <link>
+	css选择器：
+		ID选择器：#myRed(colorred)
+		class选择器 .myRed(colorred)
+		元素选择器 b(color red ,font-size 20px)
+	css属性：
+		文本属性；
+		定位属性；静态定位，相对定位，绝对定位；
+		列表属性；
+		布局属性；
+		边框属性；
+		...
+JAVACRIPT
+	JS的基本语法：
+		JS的数据类型：undefined、null、number、字符串、Boolean、object；
+		变量的定义：var
+		控制语句；
+		内置语句：eval（）、escape（）|onescape（）的区别？
+		常用的对象：date，math、string、regexp、array、
+		数组：var a=[];var b=new Array;
+		对象的定义：
+		JSON：var user={
+						name:周方杨
+						age:29
+						...		}
+		函数也是对象：
+		继承是通过prototype属性来模拟
+		对话框：alert、prompt、confirm等等
+		浏览器的对象：
+			Window
+				open|close-->Google搜索：子窗口如何操作父窗口
+				定时操作：settimeout等等
+			navigator
+				浏览器信息
+			history
+				访问历史，history.go (1)前进一个  history.go(-1)后退一个；
+			location
+				地址栏信息；
+	DOM操作：
+	如何获得节点：
+		直接获得：
+				document.getElementById()
+				document.getElementsByName()
+				document.getElementsByTagName()
+		间接获得：
+			通过父节点获取子节点：
+				childNodes
+				firstChild lastChild
+			通过子节点获取父节点
+				parentNodes
+			兄弟节点：
+				nextSibling preSibling
+	如何操作节点：
+		判断节点类型：note Type 1元素节点|3文本节点
+		节点的属性：通过点操作符即可
+		节点的文本内容：innerHTML
+	改变DOM结构
+		增加节点  appendChild   insertBefore
+		删除节点  removeChild
+		替换节点 replaceChild
+	表单的操作票
+		通用属性 value|disable| 表单对象elements
+		单选框和复选框的操作，需要遍历
+		表单验证：<submit value=提交 onclick="return check(this form)">
+				<form onsubmit="return check(this)">
+HTTP协议：
+	请求头
+	请求行
+	请求实体
+	响应头
+	响应行
+	响应实体
+TOMCAT服务器：
+	service.xml
+	web.xml
+	目录结构的作用：
+		lib
+		work:存放jsp编译后的java文件
+		webapps
+		conf
+Servlet
+	浏览器发送给服务器请求内容，HttpServletRequest对象
+		getParameter()  gerParameterValues()
+		作为作用域：...
+		获得客户端IP和端口：
+		设置请求实体编码格式：
+		重定向
+		转发
+	服务器会送浏览器的响应内容，HttpServletResponse对象
+	需要读取web.xml中的公共信息
+	将所有的servlet放入一个容器中同一管理；
+	保存以前操作的状态  客户端保养用cookie，服务器端保存用session
+		客户端保存cookie的信息的流程；
+			服务器端写代码：Cookie c=new Cookie("a","aaaa");c.setMaxAge(2000);response.setCookie(c);
+			响应头中就会有一个：SetCookie a=aaaa
+			浏览器收到以后，先放到内存炸，如果cookie设置了有效期，则会写到硬盘的cookie文件中，
+			浏览器以后访问服务器时，就会自动携带在请求头中有效期的cookie信息；
+		服务器保存信息：session的跟踪机制
+			服务器会new一个session对象，同时，指定一个ID给session对象
+			通过响应头设置：setCookie:sessionId=134641sfdsfsfsf55;
+			浏览器收到sessionID这个信息后，下次访问一定会携带sessionID；
+			服务器收到sessionID后，根据sessionID找到对应的session对象，然后查看对象里面的内容，从而，确定之前我们进行了什么样的操作，
+			也就是实现了状态的保存；
+	servlet的生命周期：
+		加载和实例化
+			第一次请求的时候；（servlet是单例，只有一个servlet对象）
+			如果配置了<load-on-startup>,启动时加载；
+		初始化：调用init（）
+		执行：service() doGet() doPost()
+		销毁:destory()
+	过滤器：
+		实现Filter接口
+		doFilter
+		配置位于servlet之前
+	监听器：
+		实现Listener接口
+		配置位于filter之后，servlet之前，
+Jsp
+	<%  %>脚本段
+	<%= %>表达式
+	<%!  %>声明
+	<%-- --%>注释
+	<% include file="2.jsp" %> 静态导入，两个jsp文件转译时java文件就合在一起；
+	<jsp: include> 相当于一个类调用另外一个类；
+	jsp的九大内置对象：
+		request，response，out，session，application，page，pageContext，exception，config；
+
+EL&JSTL
+	EL表达式：操作的内容是作用域中的数据
+		格式：${}
+	JSTL标签库：
+		set
+		if
+		choose when otherwise
+		import
+		foreach
+Ajax
+	技术核心：通过XHR（XMLHttprRequest）对象发送请求，通过XHR对象接受响应，再通过JS操作dom对象，将接受到的信息，赋个某个元素从而实现局部刷新效果；
+	如何使用XHR对象：
+		创建XHR对象：window.....
+		创建一个请求:req.open(method,)
+		设置监听，处理服务器返回的响应内容：
+		发送请求，req.send(null);
+XML:
+	XML基本语法：
+	XML的解析：DOM方式，SAX方式，JDOM,DOM4J方式
+	dtd/schema 定义了XML数据的语法规则
+	xslt 定义xml数据的显示方式
+	
